@@ -1,20 +1,17 @@
 import { Router } from "express";
-//import {db} from "@config/firebaseConfig"
-import UserCollection from "@/repository/userCollection";
-import { Response } from "express";
+import { handlerFetchUser } from "@/controller/userFetchController";
+import { handlerCreateUser } from "@/controller/userCreateController";
+import { handlerFetchAllUser } from "@/controller/userFetchAllController";
+import { handlerUpdateUser } from "@/controller/userUpdateController";
+import { handlerDeleteUser } from "@/controller/userDeleteController";
 
 const route = Router();
 
-route.get('/create-one', async (_, res) => {
-    const [repo] = UserCollection.init()
-    if (repo) {
-        repo.create({id: "2", name: "Ivani Anastacia Sattu"})
-        res.send("OK")
-        return
-    }
-    res.send("FAIL")
-
-})
+route.post("/create-user", handlerCreateUser)
+route.get("/all-user", handlerFetchAllUser)
+route.get("/fetch-user-data/:doc_id", handlerFetchUser)
+route.put("/update-user-data/:doc_id", handlerUpdateUser)
+route.delete("/delete-user-data/:doc_id", handlerDeleteUser)
 
 
 export default route;
