@@ -55,14 +55,27 @@ export default class RepositoryBase<M extends BaseEntity>{
     public async getAll () {
         const all = await db.collection(this.collection).get()
 
-        const data: M[] = []
+        const data: {data: M, id: string}[] = []
         all.forEach(doc => {
             // this is just my experiment, this my not good seeding like this on production
             // use zod or similar library to verify object entity will be good
             const modalData = this.entity.seed(doc.data()) as M
-            data.push(modalData)
+            data.push({data: modalData, id: doc.id})
         })
         return data
+    }
+
+    public async getOne (doc: string) {
+        const snapshot = await db.collection(this.collection).doc(doc).get()
+        return {id: snapshot.id, data: snapshot.data()}
+    }
+
+    public async update (doc: string, data: Partial<M>) {
+        return await db.collection(this.collection).doc(doc).update(data)
+    }
+
+    public async delete (doc: string) {
+        return await db.collection(this.collection).doc(doc).delete()
     }
     
 }
