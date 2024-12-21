@@ -6,11 +6,10 @@ const app = express()
 
 const port = 3000
 
-app.get('/', (_, res) => {
-    res.send("Hello world")
-})
 
-app.use('/users', useRoutes)
+app.use(express.json());
+
+app.use(useRoutes)
 
 
 app.listen(port, () => console.log("run on post 3000"))
