@@ -12,11 +12,13 @@ npm install
 - ** windows PowerShell **:
 ```bash
 $env:GOOGLE_APPLICATION_CREDENTIALS="{location}\service-account.json"
+$env:TOKENAPI="your token"
 ```
 
 - ** Linux / Mac **:
 ```bash
 export GOOGLE_APPLICATION_CREDENTIALS="{location}\service-account.json"
+export TOKENAPI="your token"
 ```
 
 ## Run Development
