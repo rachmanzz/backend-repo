@@ -4,8 +4,11 @@ import { handlerCreateUser } from "@/controller/userCreateController";
 import { handlerFetchAllUser } from "@/controller/userFetchAllController";
 import { handlerUpdateUser } from "@/controller/userUpdateController";
 import { handlerDeleteUser } from "@/controller/userDeleteController";
+import authMiddleware from "middleware/authMiddleware";
 
 const route = Router();
+
+route.use(authMiddleware)
 
 route.post("/create-user", handlerCreateUser)
 route.get("/all-user", handlerFetchAllUser)
