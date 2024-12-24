@@ -27,6 +27,25 @@ export TOKENAPI="your token"
 npm run dev
 ```
 
+## Endpoint
+
+- POST (CREATE) : `/create-user`
+- GET (FETCH) : `/all-user`
+- GET (FETCH) : `/fetch-user-data/:doc_id` (requested on technical test)
+- PUT (UPDATE) : `/update-user-data/:doc_id` (requested on technical test)
+- DELETE (DELETE) : `/delete-user-data/:doc_id`
+
+## Payload (CREATE & UPDATE)
+
+```json
+{
+	"name": "Gobi",
+	"age": 25,
+	"email": "gobi.test@gmail.com",
+    "phone": "0810000000"
+}
+```
+
 ## Clarification: Technical Test Purpose
 
 Some scenarios in certain functions may not be suitable for production use. These implementations are simplified and intended primarily for technical testing purposes only. There are many third-party libraries available that can address these scenarios more robustly and efficiently.
