@@ -1,5 +1,4 @@
-// actually I no idea the entity goes to
-// so I do simillar like nest.js to
+// so I do simillar like nest.js
 
 import BaseEntity from "./entityBase";
 
