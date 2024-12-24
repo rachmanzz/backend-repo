@@ -4,7 +4,8 @@
 import BaseEntity from "./entityBase";
 
 export class UserModel extends BaseEntity{
-    id!: string
     name!: string
+    email!: string
+    phone!: string
     age?: number
 }
