@@ -45,7 +45,3 @@ npm run dev
     "phone": "0810000000"
 }
 ```
-
-## Clarification: Technical Test Purpose
-
-Some scenarios in certain functions may not be suitable for production use. These implementations are simplified and intended primarily for technical testing purposes only. There are many third-party libraries available that can address these scenarios more robustly and efficiently.
